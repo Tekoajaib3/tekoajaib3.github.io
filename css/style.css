@@ -17,7 +17,8 @@ nav {
 	overflow: hidden;
 }
 #gallery-1 .img-wrap img, #gallery-2 .card img {
-	width: 100%;
+	width: 240px;
+	height: 180px;
 	-webkit-transition: all .5s;
     -moz-transition: all .5s;
     -o-transition: all .5s;
