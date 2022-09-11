@@ -1,30 +1,45 @@
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 nav {
-	box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 #popular-foods .card {
-	transition: all .3s;
+  transition: all 0.3s;
 }
 #popular-foods .card:hover {
-	box-shadow: 0 .4rem 1rem rgba(0,0,0,.15);
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.15);
 }
 #contact .card:hover {
-	border-color: #bbb;
+  border-color: #bbb;
 }
-#gallery-1 .img-wrap, #gallery-2 .card {
-	overflow: hidden;
+#gallery-1 .img-wrap,
+#gallery-2 .card {
+  overflow: hidden;
 }
-#gallery-1 .img-wrap img, #gallery-2 .card img {
-	width: 240px;
-	height: 180px;
-	-webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+#gallery-1 .img-wrap img,
+#gallery-2 .card img {
+  width: 240px;
+  height: 180px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
-#gallery-1 .img-wrap:hover img, #gallery-2 .card:hover img {
-	transform: scale(1.2);
-	opacity: 0.7;
+#gallery-1 .img-wrap:hover img,
+#gallery-2 .card:hover img {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+.lingkaran1 {
+  width: 35px;
+  height: 35px;
+  background: #ffffff;
+  border-radius: 100%;
+}
+.lingkaran2 {
+  width: 35px;
+  height: 35px;
+  background: #38e04e;
+  border-radius: 100%;
 }
