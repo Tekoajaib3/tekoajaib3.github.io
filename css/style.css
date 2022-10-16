@@ -6,6 +6,7 @@ nav {
 }
 #popular-foods .card {
   transition: all 0.3s;
+  margin-bottom: 2rem;
 }
 #popular-foods .card:hover {
   box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.15);
@@ -42,4 +43,62 @@ nav {
   height: 35px;
   background: #38e04e;
   border-radius: 100%;
+}
+/* Container kartu flip - atur lebar dan tinggi sesuai keinginan . Kita akan menambahkan properti border untuk menunjukkan bahwa flip itu sendiri keluar dari kotak saat melakukan floating (hapus perspektif jika tidak menginginkan efek 3D */
+.flip-card {
+  background-color: transparent;
+  width: 240px;
+  height: 280px;
+  perspective: 1000px; /* Hapus ini jika  tidak menginginkan efek 3D */
+  margin-bottom: 2rem;
+  justify-items: center;
+}
+
+/* Container ini diperlukan untuk memosisikan sisi depan dan belakang */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Lakukan flip horizontal saat akan menggerakkan mouse ke atas container flip box */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Posisikan sisi depan dan belakang */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style pada sisi depan (mundur jika gambar hilang) */
+.flip-card-front {
+  background-color: rgb(218, 226, 238);
+  color: rgb(0, 39, 112);
+  border-radius: 30px;
+}
+
+.flip-card-front h5 {
+  text-align: center;
+  position: relative;
+  top: 40%;
+}
+
+/* Atur gaya sisi belakang */
+.flip-card-back {
+  background-color: rgb(0, 39, 112);
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 30px;
+}
+
+.flip-card-back a {
+  position: relative;
+  top: 60%;
 }
