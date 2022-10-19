@@ -9,6 +9,9 @@
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Tekoajaib | Home Page</title>
@@ -16,7 +19,7 @@
 </head>
 
 <body>
-	<main>
+	<main id="utama">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
 			<div class="container">
 				<a class="navbar-brand" href="/">Home</a>
@@ -36,22 +39,78 @@
 			</div>
 		</nav>
 
+		<!-- per modal-an -->
+
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="staticBackdropLabel">Kirim Pesan</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-success alert-dismissible fade show d-none alert-berhasil" role="alert">
+							<strong>Terima kasih!</strong> Pesan anda berhasil terkirim.
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						<div class="alert alert-danger alert-dismissible fade show d-none alert-gagal" role="alert">
+							<strong>Gagal terkirim,</strong> Sepertinya pesan anda terkena begal.
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						<div class="container">
+							<div class="row mt-3">
+								<div class="col-md-12">
+									<form name="Hasil Kirim Pesan">
+										<div class="form-group">
+											<label for="InputNama">Nama</label>
+											<input type="text" class="form-control" id="InputNama"
+												aria-describedby="namaHelp" placeholder="Masukan nama"
+												title="Harap masukan nama bengan benar" name="nama">
+											<small id="namaHelp" class="form-text text-muted">Nama anda akan di jaga
+												kerahasiaan nya.</small>
+										</div>
+										<div class="form-group">
+											<label for="InputPesan">Pesan</label>
+											<textarea type="text" class="form-control" id="InputPesan"
+												placeholder="Masukan pesan"
+												title="Pesan diharap tidak mengandung unsur SARA" name="pesan"></textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">Batal</button>
+											<button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+											<button class="btn btn-primary btn-loading d-none" type="button" disabled>
+												<span class="spinner-border spinner-border-sm" role="status"
+													aria-hidden="true"></span>
+												Loading...
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Per jumbotron -->
-		<div class="jumbotron bg-light" id="utama">
+
+		<div class="jumbotron bg-light">
 			<div class="container">
 				<h1 class="display-4">Hai!</h1>
 				<p class="lead">Terimakasih telah mengunjungi halaman website tekoajaib</p>
 				<hr class="my-4">
 				<p>Disini kamu bisa mendapatkan informasi tentang kelas ini dari mulai a sampai z. </br>dan yang mau
 					kirim - kirim pesan/masukan, klik tombol di bawah yaa! </p>
-				<a class="btn btn-outline-primary btn-lg" href="https://www.instagram.com/tekoajaib_3"
+				<a class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" href="#staticBackdrop"
 					role="button">Kirim Pesan</a>
 			</div>
 		</div>
 
-		<!-- Carousel -->
-
 		<!--- abaout --->
+
 		<section id="about">
 			<div class="container">
 				<h1 class="text-center my-5">Tentang Kelas</h1>
@@ -65,7 +124,7 @@
 							lebih 36 murid saat baru terbentuk. Pada kelas 10, wali kelas kami adalah Bapak Muchlisyien
 							yang pada saat itu mengajar mata pelajaran produktif, Desain Grafis. Setelah kami naik ke
 							kelas 11 wali kelas kami berganti ke Ibu Listia yang sampai sekarang mungkin masih mengajar
-							mata pelajaran Matematika. Dan terakhir pada kelas 12 wali kelas kami adalah Bapak dimas
+							mata pelajaran Matematika. Dan yang terakhir pada kelas 12 wali kelas kami adalah Bapak dimas
 							yang mengajar pelajaran produktif, Administrasi Infrastruktur Jaringan (AIJ).
 						</p>
 						<p>
@@ -101,8 +160,7 @@
 									<h5>Ada Tombol Dibelakangnya</h5>
 								</div>
 								<div class="flip-card-back">
-									<a class="btn btn-outline-light btn-lg"
-										href="#utama" role="button">Ini Tombol</a>
+									<a class="btn btn-outline-light btn-lg" href="#utama" role="button">Ini Tombol</a>
 								</div>
 							</div>
 						</div>
@@ -114,8 +172,7 @@
 									<h5>Ada Tombol Dibelakangnya</h5>
 								</div>
 								<div class="flip-card-back">
-									<a class="btn btn-outline-light btn-lg"
-										href="#utama" role="button">Ini Tombol</a>
+									<a class="btn btn-outline-light btn-lg" href="#utama" role="button">Ini Tombol</a>
 								</div>
 							</div>
 						</div>
@@ -127,8 +184,7 @@
 									<h5>Ada Tombol Dibelakangnya</h5>
 								</div>
 								<div class="flip-card-back">
-									<a class="btn btn-outline-light btn-lg"
-										href="#utama" role="button">Ini Tombol</a>
+									<a class="btn btn-outline-light btn-lg" href="#utama" role="button">Ini Tombol</a>
 								</div>
 							</div>
 						</div>
