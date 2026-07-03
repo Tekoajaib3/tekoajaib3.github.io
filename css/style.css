@@ -168,10 +168,34 @@ nav {
   background: #d8dee9;
   box-shadow: 0 10px 26px rgba(23, 32, 51, 0.08);
 }
+
+#gallery-1 .row,
+#gallery-2 .row {
+  align-items: stretch;
+}
+
+#gallery-1 .col,
+#gallery-2 .col {
+  display: flex;
+}
+
+#gallery-1 a,
+#gallery-2 a {
+  display: block;
+  width: 100%;
+}
+
+#gallery-1 .img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
 #gallery-1 .img-wrap img,
 #gallery-2 .card img {
   width: 100%;
-  height: 190px;
+  height: 100%;
+  min-height: 190px;
+  display: block;
   object-fit: cover;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -180,8 +204,49 @@ nav {
 }
 #gallery-1 .img-wrap:hover img,
 #gallery-2 .card:hover img {
-  transform: scale(1.2);
-  opacity: 0.7;
+  transform: scale(1.08);
+  opacity: 0.86;
+}
+
+/* Profile cards */
+.page-shell .card.mb-3 {
+  overflow: hidden;
+  border: 1px solid rgba(36, 87, 197, 0.1);
+  box-shadow: 0 14px 34px rgba(23, 32, 51, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-shell .card.mb-3:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 46px rgba(23, 32, 51, 0.16);
+}
+
+.page-shell .card.mb-3 .row {
+  min-height: 100%;
+}
+
+.page-shell .card.mb-3 .col-md-4 {
+  background: #eef2f8;
+}
+
+.page-shell .card.mb-3 .col-md-4 img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+}
+
+.page-shell .card.mb-3 .card-body {
+  padding: 1.25rem;
+}
+
+.page-shell .card.mb-3 .card-title {
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.page-shell .card.mb-3 .card-text {
+  color: var(--muted);
 }
 .lingkaran1 {
   width: 35px;
