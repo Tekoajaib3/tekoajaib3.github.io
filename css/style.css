@@ -1,9 +1,156 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --ink: #172033;
+  --muted: #667085;
+  --line: #e6e8ee;
+  --paper: #ffffff;
+  --soft: #f5f7fb;
+  --brand: #2457c5;
+  --brand-dark: #163f99;
+  --accent: #12a594;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--soft);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: var(--brand);
+}
+
+a:hover {
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
 nav {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
+
+.site-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--muted);
+  font-weight: 600;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+}
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--brand);
+}
+
+.page-shell {
+  padding-bottom: 2rem;
+}
+
+.page-hero {
+  padding: 4rem 0 3.2rem;
+  background:
+    linear-gradient(120deg, rgba(36, 87, 197, 0.9), rgba(18, 165, 148, 0.78)),
+    url("../aset/home/foto kelas 12.jpeg") center / cover;
+  color: #fff;
+}
+
+.page-hero h1,
+.home-hero h1 {
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.page-hero p,
+.home-hero p {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+}
+
+.home-hero {
+  padding: 4.8rem 0 4rem;
+  background:
+    linear-gradient(120deg, rgba(13, 31, 74, 0.82), rgba(36, 87, 197, 0.58)),
+    url("../aset/home/foto kelas 12.jpeg") center / cover;
+  color: #fff;
+}
+
+.section-title {
+  margin: 3.5rem 0 1.5rem;
+  font-weight: 800;
+}
+
+.content-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 12px 35px rgba(23, 32, 51, 0.07);
+}
+
+.content-panel img {
+  object-fit: cover;
+}
+
+.btn {
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.btn-primary,
+.btn-outline-primary:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn-outline-primary {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 26px rgba(23, 32, 51, 0.06);
+}
+
+.card-img-top,
+.card img.img-fluid {
+  object-fit: cover;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: #fff !important;
+}
+
+.site-footer h6 {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.site-footer a {
+  font-weight: 700;
+}
+
 #popular-foods .card {
   transition: all 0.3s;
   margin-bottom: 2rem;
@@ -17,11 +164,15 @@ nav {
 #gallery-1 .img-wrap,
 #gallery-2 .card {
   overflow: hidden;
+  border-radius: 8px;
+  background: #d8dee9;
+  box-shadow: 0 10px 26px rgba(23, 32, 51, 0.08);
 }
 #gallery-1 .img-wrap img,
 #gallery-2 .card img {
-  width: 240px;
-  height: 180px;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -47,11 +198,12 @@ nav {
 /* Container kartu flip - atur lebar dan tinggi sesuai keinginan . Kita akan menambahkan properti border untuk menunjukkan bahwa flip itu sendiri keluar dari kotak saat melakukan floating (hapus perspektif jika tidak menginginkan efek 3D */
 .flip-card {
   background-color: transparent;
-  width: 240px;
+  width: min(100%, 260px);
   height: 280px;
   perspective: 1000px; /* Hapus ini jika  tidak menginginkan efek 3D */
   margin-bottom: 2rem;
-  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Container ini diperlukan untuk memosisikan sisi depan dan belakang */
@@ -79,9 +231,11 @@ nav {
 
 /* Style pada sisi depan (mundur jika gambar hilang) */
 .flip-card-front {
-  background-color: rgb(218, 226, 238);
-  color: rgb(0, 39, 112);
-  border-radius: 30px;
+  background: #fff;
+  color: var(--brand-dark);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(23, 32, 51, 0.08);
 }
 
 .flip-card-front h5 {
@@ -92,13 +246,31 @@ nav {
 
 /* Atur gaya sisi belakang */
 .flip-card-back {
-  background-color: rgb(0, 39, 112);
+  background: linear-gradient(145deg, var(--brand-dark), var(--accent));
   color: white;
   transform: rotateY(180deg);
-  border-radius: 30px;
+  border-radius: 8px;
 }
 
 .flip-card-back a {
   position: relative;
   top: 60%;
+}
+
+@media (max-width: 767.98px) {
+  .page-hero,
+  .home-hero {
+    padding: 3.2rem 0 2.8rem;
+  }
+
+  .display-4,
+  .display-5 {
+    font-size: 2.2rem;
+  }
+
+  .site-footer,
+  .site-footer .text-right,
+  .site-footer .text-left {
+    text-align: center !important;
+  }
 }
